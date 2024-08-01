@@ -1,0 +1,17 @@
+<%= form_with(
+  model: @presenter.filter,
+  scope: :filter,
+  data: { controller: 'form form-filter', turbo_stream: true},
+  id: 'quick-filter',
+  class: 'pb-3',
+  url: locations_path,
+  method: :get
+) do |f|%>
+
+  <div class="filters d-flex align-items-stretch gap-2">
+    <%= f.custom_text_field :query, container_options: { class: 'w-100'}, input_options: { placeholder: true, data: { action: 'input->form-filter#inputWrite' } } %>
+    <%= f.advanced_filter_fields LocationFilter::ADVANCED_FILTERS, params[:order] %>
+    <%= filter_button %>
+  </div>
+
+<% end %>

@@ -1,0 +1,5 @@
+.card {
+  > div {
+    @include border-radius(var(--#{$prefix}card-border-radius));
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OrdersNOW!</title>
+    <meta property="og:title" content="OrdersNOW!"/>
+    <meta property="og:type" content="website" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0923fe" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="layout-full d-flex overflow-hidden full" data-controller="layout">
+    <input type='hidden' id='app-locale' value='<%= I18n.locale %>'>
+
+    <div id="main" class="overflow-hidden vh-100">
+      <%= render 'partial_header_full' %>
+
+      <div class="p-3 h-100 d-flex align-items-center justify-content-center">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'modal_confirm' %>
+    <%= render partial: 'partial_flash_messages', locals: { trigger: false } %>
+
+    <%= turbo_stream_from "user_#{current_user.id}" if current_user.present? %>
+    <%= turbo_frame_tag "run-script" %>
+  </body>
+</html>

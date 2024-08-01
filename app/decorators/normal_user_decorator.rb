@@ -1,0 +1,2 @@
+class NormalUserDecorator < UserDecorator
+end

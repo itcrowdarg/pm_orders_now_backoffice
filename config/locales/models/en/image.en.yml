@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    attributes:
+      image:
+        file: File
+        purge: Delete
+    models:
+      image:
+        one: Imagen
+        other: Images

@@ -1,0 +1,26 @@
+
+<div class="col-12 col-md-6 col-lg-4">
+
+  <%= image_tag 'logo.png', class:'logo-normal', alt: 'Logo', style: 'width: -webkit-fill-available; padding: 50px;'%>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { controller: 'form'}, html: {class: 'needs-validation', novalidate: true}) do |f| %>
+
+    <%= f.custom_email_field :email, input_options: { autofocus: true, autocomplete: "email", class: 'form-control', placeholder: true, required: true } %>
+    <%= f.custom_password_field :password, input_options: { autocomplete: "current-password", class: 'form-control', placeholder: true, required: true } %>
+
+    <div class="d-flex justify-content-between">
+      <% if devise_mapping.rememberable? %>
+        <%= f.custom_check_box_field :remember_me %>
+      <% end %>
+      <div class="mb-3">
+        <div class="text-end"><%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(resource_name) %></div>
+      </div>
+    </div>
+
+    <div class="d-grid">
+      <%= submit_button(name: t(:log_in, scope: :actions), icon: 'box-arrow-in-right') %>
+    </div>
+  <% end %>
+
+
+</div>

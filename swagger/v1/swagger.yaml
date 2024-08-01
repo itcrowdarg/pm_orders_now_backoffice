@@ -1,0 +1,650 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/auth/sign_up":
+    post:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '422':
+          description: Respond unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  errors:
+                    type: object
+                    properties:
+                      field:
+                        type: array
+                        items:
+                          type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: xxxxx@gmail.com
+                password:
+                  type: string
+                  example: xxxxx@gmail.com
+                password_confirmation:
+                  type: string
+                  example: xxxxx@gmail.com
+                first_name:
+                  type: string
+                  example: Jonas
+                last_name:
+                  type: string
+                  example: Smith
+              required:
+              - email
+              - password
+              - password_confirmation
+              - first_name
+              - last_name
+  "/api/v1/auth/sign_in":
+    post:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      access_token:
+                        type: string
+                      refresh_token:
+                        type: string
+                      datetime_expiration:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '403':
+          description: Respond forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+        '404':
+          description: Respond not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: xxxxx@gmail.com
+                password:
+                  type: string
+                  example: xxxxx@gmail.com
+              required:
+              - email
+              - password
+  "/api/v1/auth/refresh_token":
+    post:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      access_token:
+                        type: string
+                      refresh_token:
+                        type: string
+                      datetime_expiration:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '404':
+          description: Respond not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access_token:
+                  type: string
+                refresh_token:
+                  type: string
+              required:
+              - confirmation_token
+  "/api/v1/auth/confirm":
+    get:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters:
+      - name: data
+        in: query
+        schema:
+          type: object
+          properties:
+            confirmation_token:
+              type: string
+          required:
+          - confirmation_token
+      responses:
+        '200':
+          description: Respond ok
+        '404':
+          description: Respond not found
+  "/api/v1/auth/send_confirmation":
+    post:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '403':
+          description: Respond forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '404':
+          description: Respond not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+              required:
+              - email
+  "/api/v1/auth/send_reset_password":
+    post:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '404':
+          description: Respond not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+              required:
+              - email
+  "/api/v1/auth/reset_password":
+    get:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters:
+      - name: data
+        in: query
+        schema:
+          type: object
+          properties:
+            reset_password_token:
+              type: string
+          required:
+          - reset_password_token
+      responses:
+        '200':
+          description: Respond ok
+        '404':
+          description: Respond not found
+    post:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '404':
+          description: Respond not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reset_password_token:
+                  type: string
+                password:
+                  type: string
+                  example: xxxxx@gmail.com
+                password_confirmation:
+                  type: string
+                  example: xxxxx@gmail.com
+              required:
+              - reset_password_token
+              - password
+              - password_confirmation
+  "/api/v1/profile":
+    get:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Profile
+      security: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '404':
+          description: Respond not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+    put:
+      summary: <button class="postman-link" onclick="event.stopPropagation();window.open('');"><b>POSTMAN
+        LINK</b></button>
+      tags:
+      - Profile
+      security: []
+      parameters: []
+      responses:
+        '200':
+          description: Respond ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '422':
+          description: Respond unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  errors:
+                    type: object
+                    properties:
+                      field:
+                        type: array
+                        items:
+                          type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      timezone:
+                        type: string
+                      locale:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+        '404':
+          description: Respond not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                timezone:
+                  type: string
+                locale:
+                  type: string
+              required:
+              - email
+              - first_name
+              - last_name
+              - timezone
+              - locale
+servers: []
+components:
+  securitySchemes:
+    access_token:
+      type: apiKey
+      name: access-token
+      in: header

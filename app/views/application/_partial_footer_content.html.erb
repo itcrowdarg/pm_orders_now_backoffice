@@ -1,0 +1,16 @@
+
+<div id="pagination-info" class="d-flex align-items-center gap-3">
+  <div class="d-flex align-items-center">
+    <span class="me-3 d-none d-md-inline text-nowrap"><%= t(:rows_per_page) %></span>
+    <%= rows_per_page_dropdown_button(@presenter.per_page) %>
+  </div>
+  <small id="list-total" class="text-muted text-nowrap"><%= "#{@presenter.list.total_entries} #{klass.model_name.human(count: @presenter.list.total_entries).downcase}" %></small>
+</div>
+
+
+
+
+
+<div id="pagination-links">
+  <%= will_paginate @presenter.list, will_paginate_params %>
+</div>

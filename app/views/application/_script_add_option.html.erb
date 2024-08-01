@@ -1,0 +1,5 @@
+<script>
+$('<%= container %>').append('<option value="<%= id %>"><%= text %></option>');
+$('<%= container %>').val('<%= id %>');
+$('<%= container %>').trigger('select2:select');
+</script>

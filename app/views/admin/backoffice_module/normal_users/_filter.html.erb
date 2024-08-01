@@ -1,0 +1,24 @@
+<div id="offcanvas-filter" class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel"><%= t('actions.filter') %></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <%= form_with(
+      model: @presenter.filter,
+      scope: :filter,
+      data: { controller: 'form'},
+      url: normal_users_path,
+      method: :get
+    ) do |f|%>
+
+      <%= f.custom_text_field :query, input_options: { autofocus: true, placeholder: true } %>
+      <%= f.custom_datetimerangepicker_field :daterange_from_to, input_options: { placeholder: true } %>
+
+      <div class="d-flex gap-1 justify-content-end">
+        <%= filter_clear_button(normal_users_path) %>
+        <%= submit_button(name: t('actions.filter'), icon: :search, btn_class: 'btn btn-primary btn-lg text-nowrap') %>
+      </div>
+    <% end %>
+  </div>
+</div>

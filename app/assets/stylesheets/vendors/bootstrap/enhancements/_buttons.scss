@@ -1,0 +1,40 @@
+button {
+  .show-when-enabled { display: initial }
+  .show-when-disabled { display: none }
+
+  &[disabled]{
+    .show-when-enabled { display: none }
+    .show-when-disabled { display: initial }
+  }
+}
+
+button[disabled], a[disabled] {
+  color: $gray-300 !important;
+  border-color: $gray-300 !important;
+  background-color: transparent !important;
+  pointer-events: none;
+}
+
+button.btn-link[disabled], a.btn-link[disabled] {
+  border-color: transparent !important;
+}
+
+.filters button[disabled],
+.filters a[disabled],
+#pagination-info button[disabled],
+#pagination-info a[disabled] {
+  color: $gray-400 !important;
+  border-color: $gray-300 !important;
+  background-color: transparent !important;
+  pointer-events: none;
+}
+
+.filters button.btn-link[disabled],
+.filters a.btn-link[disabled],
+#pagination-info button.btn-link[disabled],
+#pagination-info a.btn-link[disabled] {
+  color: $secondary !important;
+  background-color: $gray-200 !important;
+  border-color: $border-color !important;
+  opacity: 1 !important;
+}

@@ -1,0 +1,14 @@
+<tr id="user_<%= admin_user.id %>" <% if local_assigns[:hide] %>style="display:none;"<% end %>>
+  <td data-label='<%= AdminUser.human_attribute_name(:id) %>'><%= admin_user.id %></td>
+  <td data-label='<%= AdminUser.human_attribute_name(:last_name) %>'><%= admin_user.last_name %></td>
+  <td data-label='<%= AdminUser.human_attribute_name(:first_name) %>'><%= admin_user.first_name %></td>
+  <td data-label='<%= AdminUser.human_attribute_name(:email) %>'><%= admin_user.email %></td>
+  <td data-label='<%= AdminUser.human_attribute_name(:created_at) %>'><%= admin_user.created_at %></td>
+  <td class="operations">
+    <div class="operations-container">
+      <%= show_admin_user_button(admin_user) %>
+      <%= edit_admin_user_button(admin_user) %>
+      <%= destroy_admin_user_button(admin_user) %>
+    </div>
+  </td>
+</tr>

@@ -1,0 +1,129 @@
+
+.main-table-scrolleable{
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead {
+      th {
+        position: sticky;
+        top: 0;
+        background-color: $white;
+        z-index: $zindex-dropdown;
+        border-bottom: 1px solid $gray-400;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  table.table.responsive {
+    border: none;
+    box-shadow: none !important;
+  }
+
+  table.table.responsive thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+
+
+  table.table.responsive tr {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin-bottom: 1em;
+    border-radius: 0.375rem;
+    box-shadow: $box-shadow;
+    background-color: $card-bg;
+    //min-height: 160px; //4 buttons
+    min-height: 160px; //3 buttons
+  }
+
+  table.table.responsive tr:last-child {
+    margin-bottom: 0;
+  }
+
+  table.table.responsive td {
+    width: 100% !important;
+    padding: 0.5rem 2.1rem 0.5rem 1rem;
+    display: block;
+    white-space: normal;
+    border-bottom: 0;
+    &:first-child {
+      border: 0;
+    }
+    &:last-child {
+      display: block;
+    }
+  }
+
+
+  table.table.responsive td {
+    .select2.select2-container {
+      font-size: 1.2em;
+      text-align: left;
+    }
+  }
+
+  table.table.responsive td .input-group .invalid-feedback {
+    display: none;
+  }
+
+  table.table.responsive td::before {
+    display: block;
+    content: attr(data-label);
+    color: $primary;
+    font-weight: bold;
+  }
+
+  table.table.responsive td.operations {
+    padding: 0;
+    .operations-container{
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      border-bottom-right-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;    
+      border-left: 1px solid $border-color;
+    }
+  }
+  table.table.responsive td.operations a,
+  table.table.responsive td.operations button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  table.table.responsive td.image {
+    height: 180px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .table .check-column span.form-check {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    width: 26px;
+    margin-left: 8px;
+    justify-content: center;
+    border-right: 1px solid #dee2e6;
+  }
+}

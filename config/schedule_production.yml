@@ -1,0 +1,5 @@
+cron_example:
+  cron: "0 */2 * * *" #"every 2 hours"
+  class: "Crons::CronExampleWorker"
+  queue: normal
+

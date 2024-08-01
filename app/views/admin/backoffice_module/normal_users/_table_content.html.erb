@@ -1,0 +1,17 @@
+<table class="table responsive mb-0">
+  <thead>
+    <tr>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'id', NormalUser.human_attribute_name(:id) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'last_name', NormalUser.human_attribute_name(:last_name) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'first_name', NormalUser.human_attribute_name(:first_name) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'email', NormalUser.human_attribute_name(:email) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'confirmation_sent_at', NormalUser.human_attribute_name(:confirmation_sent_at) %></span></th>      
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'confirmed_at', NormalUser.human_attribute_name(:confirmed_at) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'created_at', NormalUser.human_attribute_name(:created_at) %></span></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="list-normal-users">
+    <%= render @presenter.list %>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+FROM ruby:3.2.3-slim-bookworm
+
+
+ARG RAILS_ROOT=/app
+ARG REDIS_URL="redis://redis:6379/1"
+WORKDIR $RAILS_ROOT
+
+COPY Gemfile* ./
+COPY vendor/ vendor/
+
+ENV BUNDLER_VERSION 2.5.14
+
+RUN gem install bundler -N -v $BUNDLER_VERSION && \
+  bundle config set --local deployment 'true' --timeout 60 && \
+  bundle install --verbose --jobs 14 --retry 5
+
+COPY . ./
+
+RUN bundle exec rake assets:precompile
+
+VOLUME $RAILS_ROOT/public
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

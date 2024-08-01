@@ -1,0 +1,50 @@
+<%= turbo_frame_tag turbo_frame_id do %>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="modal-title" class="modal-title"><%= NormalUser.model_name.human %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" data-controller="form">
+
+        <div class="row">
+          <div class="col-md-4">
+            <%= custom_text_field(NormalUser.human_attribute_name(:last_name), @normal_user.last_name) %>
+          </div>
+          <div class="col-md-4">
+            <%= custom_text_field(NormalUser.human_attribute_name(:first_name), @normal_user.first_name) %>
+          </div>
+          <div class="col-md-4">
+            <%= custom_text_field(NormalUser.human_attribute_name(:email), @normal_user.email) %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= custom_text_field(NormalUser.human_attribute_name(:confirmed_at), @normal_user.confirmed_at) %>
+          </div>
+          <div class="col-md-6">
+            <%= custom_text_field(NormalUser.human_attribute_name(:confirmation_sent_at), @normal_user.confirmation_sent_at) %>
+          </div>
+        </div>
+
+
+        <% if @normal_user.normal_user_tokens.any? %>
+          <hr>
+          <% @normal_user.normal_user_tokens.order_default.each do |normal_user_token| %>
+            <%= custom_text_copy_clipboard_field(NormalUserToken.human_attribute_name(:access_token), normal_user_token.access_token) %>
+            <%= custom_text_copy_clipboard_field(NormalUserToken.human_attribute_name(:refresh_token), normal_user_token.refresh_token) %>
+            <%= custom_text_field(NormalUserToken.human_attribute_name(:datetime_expiration), normal_user_token.datetime_expiration) %>
+            <%= custom_text_field(NormalUserToken.human_attribute_name(:created_at), normal_user_token.created_at) %>
+          <% end %>
+        <% end %>
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <%= render "script_open_modal_form_entity" %>
+<% end %>
+

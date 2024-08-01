@@ -1,0 +1,25 @@
+<% content_for :header_content do %>
+  <div class="d-flex flex-column">
+    <h3 class="mb-0 fw-bold"><%= NormalUser.model_name.human(count: 2) %></h3>
+    <%= render 'partial_breadcrumb' %>
+  </div>
+  <div class="header-buttons mt-2 mt-md-0 d-flex gap-1 align-items-start">
+    <%= new_normal_user_button %>
+  </div>
+<% end %>
+
+<div id="main-body" class="p-3">
+  <%= render 'filter_top' %>
+  <%= render 'filter' %>
+  <div class="no-card">
+    <div id="table-normal-users" class="table-responsive overflow-auto main-table-scrolleable">
+      <%= render 'table_content' %>
+    </div>
+  </div>
+</div>
+
+<% content_for :footer_content do %>
+  <nav id="main-footer" class="navbar sticky-bottom px-3 py-2">
+    <%= render 'partial_footer_content', klass: NormalUser %>
+  </nav>
+<% end %>

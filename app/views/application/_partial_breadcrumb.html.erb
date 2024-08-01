@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb" class="d-block">
+  <ol class="breadcrumb mb-0 mt-2">
+    <% breadcrumbs = breadcrumb_road %>
+    <% breadcrumbs.each do |breadcrumb| %>
+      <li class="breadcrumb-item <% if breadcrumbs.last == breadcrumb %>active<% end %>">
+        <% if breadcrumb.second.present? %>
+          <%= link_to breadcrumb.first, breadcrumb.second %>
+        <% else %>
+          <%= breadcrumb.first  %>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+</nav>

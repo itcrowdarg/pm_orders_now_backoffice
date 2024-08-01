@@ -1,0 +1,69 @@
+<% content_for :header_content do %>
+  <div class="d-flex flex-column">
+    <h3 class="mb-0 fw-bold"><%= t(:edit_profile) %></h3>
+    <%= render 'partial_breadcrumb' %>
+  </div>
+<% end %>
+
+
+<div class="p-3 overflow-auto" id="main-body-scrolleable">
+  <div class="card mb-2">
+    <%= form_for(
+      resource,
+      as: resource_name,
+      url: registration_path(resource_name),
+      data: { controller: 'form'},
+      html: { class: 'needs-validation', novalidate: true, method: :put }
+
+    ) do |f| %>
+      <div class="card-body">
+         <div class="row">
+          <div class="col-md-4">
+            <%= f.custom_text_field :last_name, input_options: { autofocus: true, placeholder: true, required: true } %>
+          </div>
+          <div class="col-md-4">
+            <%= f.custom_text_field :first_name, input_options: { placeholder: true, required: true } %>
+          </div>
+          <div class="col-md-4">
+            <%= f.custom_email_field :email, input_options: { autofocus: true, autocomplete: "email", placeholder: true, required: true } %>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.custom_select_field :locale, user_locale_options(resource), {include_blank: true}, input_options: {  class: 'select-flags', placeholder: true } %>
+          </div>
+          <div class="col-md-6">
+            <%= f.custom_select_field :timezone, user_timezone_options(resource), {include_blank: true}, input_options: { placeholder: true } %>
+          </div>
+        </div>
+
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.custom_password_field :password,
+              input_options: { autofocus: true, autocomplete: "new-password", placeholder: true },
+              hint_options: { value: t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it') } %>
+          </div>
+          <div class="col-md-6">
+            <%= f.custom_password_field :password_confirmation, input_options: { autofocus: true, autocomplete: "new-password", placeholder: true } %>
+          </div>
+        </div>
+
+
+        <%= f.custom_password_field :current_password,
+          input_options: { autofocus: true, autocomplete: "current-password", placeholder: true, required: true},
+          hint_options: { value: t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') } %>
+
+      </div>
+      <div class="card-footer d-flex justify-content-end border-0">
+        <%= submit_button %>
+      </div>
+    <% end %>
+  </div>
+</div>

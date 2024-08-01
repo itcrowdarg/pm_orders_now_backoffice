@@ -1,0 +1,19 @@
+en:
+  activemodel:
+    attributes:
+      admin_user_filter:
+        query: Search
+  activerecord:
+    attributes:
+      admin_user:
+        first_name: First name
+        last_name: Last name
+        email: Email
+        timezone: Timezone
+        locale: Language
+        access_token: Access token
+        created_at: Created
+    models:
+      admin_user:
+        one: Admin 
+        other: Admins

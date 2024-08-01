@@ -1,0 +1,14 @@
+<tr id="location_<%= location.id %>" <% if local_assigns[:hide] %>style="display:none;"<% end %>>
+  <td data-label='<%= Location.human_attribute_name(:name) %>'><%= location.name %></td>
+  <td data-label='<%= Location.human_attribute_name(:address) %>'><%= location.address %></td>
+  <td data-label='<%= Location.human_attribute_name(:phone_number) %>'><%= phone_to location.phone_number %></td>
+  <td class="text-center" data-label='<%= Location.human_attribute_name(:is_active) %>'><%= location.is_active_icon %></td>
+  <td class="text-center" data-label='<%= Location.human_attribute_name(:is_featured) %>'><%= location.is_featured_icon %></td>
+  <td class="operations">
+    <div class="operations-container">
+      <%= show_location_button(location) %>
+      <%= edit_location_button(location) %>
+      <%= destroy_location_button(location) %>
+    </div>
+  </td>
+</tr>

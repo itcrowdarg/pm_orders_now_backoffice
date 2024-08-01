@@ -1,0 +1,17 @@
+
+.pagination {
+  margin: 0px;
+}
+
+@include media-breakpoint-down(md) {
+  .pagination {
+    .page-item {
+      display: none;
+    }
+    .page-item:first-child,
+    .page-item:last-child,
+    .page-item.active {
+      display: block;
+    }
+  }
+}

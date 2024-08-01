@@ -1,0 +1,15 @@
+.nav {
+  .nav-link {
+    &:hover {
+      color: $nav-pills-link-active-color;
+      background-color: $nav-pills-link-active-bg;
+    }
+  }
+}
+
+.nav-pills {
+  .nav-link.active,
+  .show > .nav-link {
+    font-weight: $font-weight-bold;    
+  }
+}

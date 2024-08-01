@@ -1,0 +1,49 @@
+
+<%= form_with(
+  model: @location,
+  data: { controller: 'form'},
+    url: @location.new_record? ? locations_path : location_path(@location),
+  html: {class: 'needs-validation', novalidate: true}
+) do |f| %>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="modal-title" class="modal-title"><%= Location.model_name.human %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md">
+            <%= f.custom_text_field :name, input_options: { autofocus: true, placeholder: true, required: true } %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <%= f.custom_text_field :phone_number, input_options: { placeholder: true, required: true } %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <%= f.custom_text_field :address, input_options: { placeholder: true, required: true } %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.custom_check_box_field :is_active, input_options: { placeholder: true } %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.custom_check_box_field :is_featured, input_options: { placeholder: true } %>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <%= submit_button %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

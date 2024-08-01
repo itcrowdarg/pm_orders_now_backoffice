@@ -1,0 +1,18 @@
+
+  <nav id="main-header" class="p-0 fixed-top">
+    <div class="w-100 px-3 d-flex flex-column flex-md-row justify-content-md-between align-items-md-center">
+      <div class="d-flex py-4 justify-content-center justify-content-md-between align-items-md-center text-decoration-none" style="height: 105px;">
+        <%= link_to root_path, class: '' do %>
+          <%= image_tag '', height: '40px', class: 'd-block' %>
+        <% end %>
+      </div>
+
+      <div class="m-auto ms-md-0 me-md-0 d-flex gap-2">
+        <% if controller_name == 'registrations' %>
+          <%= link_to new_session_path(resource_name), class: 'btn btn-link' do %>
+            <b><%= t('devise.sessions.new.sign_in') %></b>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </nav>

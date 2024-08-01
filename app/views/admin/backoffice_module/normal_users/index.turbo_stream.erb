@@ -1,0 +1,4 @@
+<%= turbo_stream.update 'table-normal-users', partial: 'table_content' %>
+<%= turbo_stream.replace 'offcanvas-filter', partial: 'filter' %>
+<%= turbo_stream.replace 'filter_button', body: filter_button %>
+<%= turbo_stream.update 'main-footer', partial: 'partial_footer_content', locals: { klass: NormalUser } %>

@@ -1,0 +1,3 @@
+<%= turbo_stream.update 'run-script', partial: 'script_row_destroy', locals: { id: "user_#{@admin_user.id}" } %>
+<%= turbo_stream.update 'list-total', body: '' %>
+<%= turbo_stream.replace 'flash-messages', partial: 'partial_flash_messages', locals: { trigger: true } %>

@@ -1,0 +1,88 @@
+
+  //--- Typography
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"');
+
+  $font-family-sans-serif: 'Open Sans', sans-serif;
+  $font-size-base: 0.9rem !default;
+  $font-size-sm: $font-size-base * .875 !default;
+
+  //--- Color system
+  $white:    #fff !default;
+  $gray-100: #f8f9fa !default;
+  $gray-200: #e9ecef !default;
+  $gray-300: #dee2e6 !default;
+  $gray-400: #ced4da !default;
+  $gray-500: #adb5bd !default;
+  $gray-600: #6c757d !default;
+  $gray-700: #495057 !default;
+  $gray-800: #343a40 !default;
+  $gray-900: #212529 !default;
+  $black:    #000 !default;
+
+  $blue:    #0d6efd !default;
+  $cos_blue:#4862c8 !default;
+  $indigo:  #6610f2 !default;
+  $purple:  #6f42c1 !default;
+  $pink:    #d63384 !default;
+  $red:     #dc3545 !default;
+  $orange:  #ed715f !default;
+  $yellow:  #ffc107 !default;
+  $green:   #198754 !default;
+  $teal:    #20c997 !default;
+  $cyan:    #0dcaf0 !default;
+
+  $primary: #EA4335 !default;
+  $danger: $red !default;
+
+  //--- Body
+  $body-bg: $white !default;
+
+  //--- Navs
+  $nav-link-font-size: $font-size-sm !default;
+
+  //--- Links
+  $link-decoration: none !default;
+
+  //--- Tables
+  $table-bg: transparent;
+
+  //--- Font Size & Styles
+  $font-weight-bold: 700;
+
+  //--- Buttons
+  $btn-white-space: nowrap !default;
+  $btn-font-weight: $font-weight-bold !default;
+
+  //--- Forms
+  $input-bg: transparent !default;
+  $form-switch-color: rgba($black, .25) !default;
+  $form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>") !default;
+  $input-group-addon-bg: transparent !default;
+
+  //--- Form validation
+  $form-feedback-invalid-color:       $danger !default;
+  $form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
+  $form-feedback-icon-invalid:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>") !default;
+
+  $form-validation-states: (
+      "invalid": (
+      "color": $form-feedback-invalid-color,
+      "icon": $form-feedback-icon-invalid
+      )
+  ) !default;
+
+  //--- Dropdowns
+  $dropdown-min-width: 1rem !default;
+  $dropdown-link-hover-color:         $black !default;
+  $dropdown-link-hover-bg:            $gray-500 !default;
+
+  //--- Pagination
+  $pagination-font-size: $font-size-sm !default;
+  $pagination-bg: transparent !default;
+  $pagination-disabled-bg: transparent !default;
+
+  //--- Popovers
+  $popover-max-width: 700px !default;
+
+  //--- Modals
+  $modal-content-bg: $body-bg !default;

@@ -1,0 +1,21 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - '.gitlab-ci-ecs-deploy.rb'
+    - 'Guardfile'
+    - 'Rakefile'
+    - 'db/seeds.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'spec/**/*'
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

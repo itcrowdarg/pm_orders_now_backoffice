@@ -1,0 +1,16 @@
+<table class="table responsive mb-0">
+  <thead>
+    <tr>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'name', Location.human_attribute_name(:name) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'address', Location.human_attribute_name(:address) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'phone_number', Location.human_attribute_name(:phone_number) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'is_active', Location.human_attribute_name(:is_active) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'is_featured', Location.human_attribute_name(:is_featured) %></span></th>
+
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="list-locations">
+    <%= render @presenter.list %>
+  </tbody>
+</table>

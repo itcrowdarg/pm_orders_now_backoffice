@@ -1,0 +1,22 @@
+.toast{ 
+  .btn-close{
+    font-size: $font-size-sm;
+  }
+  &.toast-alert,
+  &.toast-error{
+    background-color: $red-200;
+    color: $red-800;
+  }
+  &.toast-notice{
+    background-color: $green-200;
+    color: $green-800;
+  }
+  &.toast-info{
+    background-color: $black;
+    color: $white;
+  }
+  &.toast-warning{
+    background-color: $yellow-200;
+    color: $yellow-800;
+  }  
+}

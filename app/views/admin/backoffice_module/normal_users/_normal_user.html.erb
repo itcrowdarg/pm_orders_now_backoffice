@@ -1,0 +1,18 @@
+<tr id="user_<%= normal_user.id %>" <% if local_assigns[:hide] %>style="display:none;"<% end %>>
+  <td data-label='<%= NormalUser.human_attribute_name(:id) %>'><%= normal_user.id %></td>
+  <td data-label='<%= NormalUser.human_attribute_name(:last_name) %>'><%= normal_user.last_name %></td>
+  <td data-label='<%= NormalUser.human_attribute_name(:first_name) %>'><%= normal_user.first_name %></td>
+  <td data-label='<%= NormalUser.human_attribute_name(:email) %>'><%= normal_user.email %></td>
+  <td data-label='<%= NormalUser.human_attribute_name(:confirmation_sent_at) %>'><%= normal_user.confirmation_sent_at %></td>
+  <td data-label='<%= NormalUser.human_attribute_name(:confirmed_at) %>'><%= normal_user.confirmed_at %></td>
+  <td data-label='<%= NormalUser.human_attribute_name(:created_at) %>'><%= normal_user.created_at %></td>
+  <td class="operations">
+    <div class="operations-container">
+      <%= send_confirmation_normal_user_button(normal_user) %>
+      <%= confirm_normal_user_button(normal_user) %>
+      <%= show_normal_user_button(normal_user) %>
+      <%= edit_normal_user_button(normal_user) %>
+      <%= destroy_normal_user_button(normal_user) %>
+    </div>
+  </td>
+</tr>

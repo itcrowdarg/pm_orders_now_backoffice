@@ -1,0 +1,5 @@
+<% row = j render partial: 'admin_user', formats: :html, locals: { admin_user: @admin_user, hide: true } %>
+<%= turbo_stream.update 'run-script', partial: 'script_row_create', locals: { container: '#list-admin-users', row: row, id: "user_#{@admin_user.id}" } %>
+<%= turbo_stream.update turbo_frame_id, partial: 'script_close_modal_form_entity' %>
+<%= turbo_stream.update 'list-total', body: '' %>
+<%= turbo_stream.replace 'flash-messages', partial: 'partial_flash_messages', locals: { trigger: true } %>

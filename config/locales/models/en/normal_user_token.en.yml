@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    attributes:
+      normal_user_token:
+        access_token: Access token
+        refresh_token: Refresh token
+        datetime_expiration: 'Expiration'
+    models:
+      normal_user_token:
+        one: User token 
+        other: User tokens

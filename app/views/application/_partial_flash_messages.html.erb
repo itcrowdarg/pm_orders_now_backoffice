@@ -1,0 +1,16 @@
+<div id="flash-messages" class="toast-container position-fixed">
+  <% flash.to_h.each do |key, value| %>
+    <div class='toast align-items-center mt-3 toast-<%= key %>' role='alert' aria-live='assertive' aria-atomic='true'>
+      <div class='d-flex align-items-center'>
+        <div class='toast-body'><%= value.html_safe %></div>
+        <button type='button' class='btn-close me-2 m-auto' data-bs-dismiss='toast' aria-label='Close'></button>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if trigger == true %>
+<script>
+  layout_admin.initFlashMessage();
+</script>
+<% end %>

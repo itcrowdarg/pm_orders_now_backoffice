@@ -1,0 +1,82 @@
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans, $grays);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            $all-colors
+          )
+        )
+      )
+    ),
+    "border": map-merge(
+      map-get($utilities, "border"),
+      (
+        responsive: true
+      ),
+    ),
+    "border-top": map-merge(
+      map-get($utilities, "border-top"),
+      (
+        responsive: true
+      ),
+    ),
+    "border-end": map-merge(
+      map-get($utilities, "border-end"),
+      (
+        responsive: true
+      ),
+    ),
+    "border-bottom": map-merge(
+      map-get($utilities, "border-bottom"),
+      (
+        responsive: true
+      ),
+    ),
+    "border-start": map-merge(
+      map-get($utilities, "border-start"),
+      (
+        responsive: true
+      ),
+    ),
+    "border-width": map-merge(
+      map-get($utilities, "border-width"),
+      (
+        responsive: true
+      ),
+    ),
+    "border-color": map-merge(
+      map-get($utilities, "border-color"),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "border-color"), "values"),
+          (
+            $all-colors
+          )
+        )
+      )
+    )
+  )
+);
+
+
+.h-initial{
+  height: initial !important;
+}

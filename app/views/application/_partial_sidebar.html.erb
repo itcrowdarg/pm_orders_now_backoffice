@@ -1,0 +1,92 @@
+
+<div id="sidebar-header">
+  <%= link_to root_path, class: '' do %>
+    <%= image_tag 'logo.png', class:'logo-normal', alt: 'OrdersNOW! Logo'%>
+    <%= image_tag 'logo-reduced.png', class: 'logo-reduced ' %>
+  <% end %>
+
+
+  <%= link_to 'javascript:void(0)', id: 'toggle-sidebar-mobile', class: "position-absolute py-1 px-2 " do %>
+    <i class="button-close bi bi-arrow-bar-right fs-1"></i>
+    <i class="button-open bi bi-list fs-1"></i>
+  <% end %>
+
+  <%= link_to 'javascript:void(0)', id: 'toggle-sidebar', class: "toogle-button btn btn-link" do %>
+    <i class="bi bi-arrow-bar-left"></i>
+  <% end %>
+</div>
+
+<ul id="sidebar-body" class="nav nav-pills d-flex gap-1 flex-row mb-auto overflow-auto">
+  <% if can?(:read, AdminUser) %>
+    <li class="nav-item w-100">
+      <%= link_to admin_users_path, class: "nav-link d-flex align-items-center #{nav_link_active_class(:admin_users)}" do %>
+        <i class="bi bi-person-fill-lock"></i>
+        <span class="">Admin Users</span>
+      <% end %>
+    </li>
+  <% end %>
+  <% if can?(:read, NormalUser) %>
+    <li class="nav-item w-100">
+      <%= link_to normal_users_path, class: "nav-link d-flex align-items-center #{nav_link_active_class(:normal_users)}" do %>
+        <i class="bi bi-people-fill"></i>
+        <span class="">Regular Users</span>
+      <% end %>
+    </li>
+  <% end %>
+  <% if can?(:read, Location) %>
+    <li class="nav-item w-100">
+      <%= link_to locations_path, class: "nav-link d-flex align-items-center #{nav_link_active_class(:locations)}" do %>
+        <i class="bi bi-shop-window"></i>
+        <span class="">Stores</span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+<div id="sidebar-footer">
+  <div class= "d-flex flex-column" id="user-button" class="dropup">
+    <a href="#" class="user-dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <strong class=""><%= current_user.to_s %></strong>
+    </a>
+
+    <ul class="dropdown-menu text-small shadow" style="z-index: 1040;">
+      <li>
+        <%= link_to edit_user_registration_path,  class: "dropdown-item" do %>
+          <%= t(:edit_profile) %>
+        <% end %>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+      <li>
+        <%= link_to destroy_user_session_path,  class: "dropdown-item" do %>
+          <%= t(:log_out) %>
+        <% end %>
+      </li>
+    </ul>
+    <div class= "d-flex flex-column">
+      <span> <%= current_user.type %> </span>
+    </div>
+  </div>
+
+  <div id="i18n-button" class="d-none dropup">
+    <button type="button" class="btn btn-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-bell-fill fs-5"></i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <% I18n.available_locales.each_with_index do |local, index| %>
+        <% unless index.zero? %>
+          <li><hr class="dropdown-divider"></li>
+        <% end %>
+        <li>
+          <%= link_to '#', class: 'dropdown-item d-flex align-items-center' do %>
+            Something
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+

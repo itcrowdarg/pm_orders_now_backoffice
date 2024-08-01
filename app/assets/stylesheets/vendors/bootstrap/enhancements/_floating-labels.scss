@@ -1,0 +1,24 @@
+.form-floating {
+  > label {
+    color: #6c757d;
+  }
+  > .form-control:focus {
+    ~ label {
+      color: $primary;
+    }
+  }
+}
+
+
+
+.input-group > .form-floating:not(:first-child) > .form-control-plaintext,
+.input-group > .form-floating:not(:first-child) > .select2-container .select2-selection{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group > .form-floating:not(:last-child) > .form-control-plaintext,
+.input-group > .form-floating:not(:last-child) > .select2-container .select2-selection{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

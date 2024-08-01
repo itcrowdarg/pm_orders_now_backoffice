@@ -1,0 +1,26 @@
+<div class="col-12 col-md-6 col-lg-4">
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3">
+    <h3><%= t('devise.passwords.new.forgot_your_password') %></h3>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), data: { controller: 'form'}, html: { method: :post }) do |f| %>
+
+    <%= f.custom_email_field :email, input_options: { autofocus: true, autocomplete: "email", class: 'form-control', placeholder: true } %>
+
+
+    <div class="d-flex justify-content-end">
+      <div class="mb-3">
+        <%= link_to t('devise.sessions.new.sign_in'), new_session_path(resource_name) %>
+      </div>
+    </div>
+
+
+    <div class="d-grid">
+      <%= submit_button(name: t(:send, scope: :actions), icon: 'send') %>
+    </div>
+  <% end %>
+
+
+</div>
+

@@ -1,0 +1,102 @@
+en:
+  locales:
+    es: 'Spanish'
+    en: 'English'
+  actions:
+    new:                    'New'
+    edit:                   'Edit'
+    show:                   'Show'
+    destroy:                'Delete'
+    import:                 'Import'  
+    export:                 'Export'
+    create:                 'Create'
+    cancel:                 'Cancel'
+    confirm:                'Confirm'
+    clear:                  'Clear'
+    impersonate:            'Impersonate'
+    go_to:                  'Go to'
+    save:                   'Save'
+    search:                 'Search'
+    filter:                 'Filter'
+    log_in:                 'Log In'
+    send:                   'Send'
+    resend:                 'Resend'    
+    destroy_selected:       'Delete'
+    execute:
+      saving:       'Saving'
+      searching:    'Searching'
+      filtering:    'Filtering'
+      logging_in:   'Logging In'
+      sending:      'Sending'    
+      resending:    'Resending'
+
+  messages:
+    batch_kind:
+      destroy:
+        :question:                    'Are you sure you want to delete these entities?'  
+    operation:
+      success_with_errors:            'Operation performed with some errors.'
+      success:                        'Operation performed successfully.'
+      error:                          'Operation failure.'  
+    create:
+      question:                       'Are you sure you want to create?'
+      success:                        'Successfully created.'
+      error:                          "Can't be created."
+    confirm:
+      question:                       'Are you sure you want to confirm?'
+      success:                        'Successfully confirmed.'
+      error:                          "Can't be confirmed."  
+    send:
+      question:                       'Are you sure you want to send?'
+      success:                        'Successfully sended.'
+      error:                          "Can't be send."         
+    update:
+      success:                        'Successfully updated.'
+      error:                          "Can't be updated."
+    destroy:
+      question:                       'Are you sure you want to delete?'
+      success:                        'Successfully deleted.'
+      error:                          "Can't be deleted."
+   
+  errors:
+    messages:
+      token_expired:                  "Token expired"
+      invalid_values:                 "Invalid, possibles values:<br><b><i>%{values}</i></b>"
+      invalid_data_import:            "Invalid file to import, download latest version"
+      access_denied:                  "Access denied"
+      record_not_found:               "Record not found"
+      route_not_found:                "Route not found"
+      unknown_format:                 "Unknown format"
+      cannot_delete_yourself:         "You cannot erase yourself"
+      must_be:                        'Must be a %{formats}'
+      file_too_big:                   'File must be less than %{size}'
+
+
+  home: 'Home'
+  edit_profile: 'My profile'
+  log_out: 'Log Out'
+  rows_per_page: 'Rows per page'
+  true: 'Yes'
+  false: 'No'
+  processing_file: 'Processing file'
+  download: 'Download'
+  download_template: 'Download template'
+  redirect_in: 'Redirect in'
+  redirecting: 'Redirecting...'
+  refresh_in: 'Refresh in'
+  refreshing: 'Refreshing...'
+  changes_rolled_back: The changes were rolled back
+
+  item_selected: 'selected'
+  items_selected: 'selected'
+  undo_selection: 'Undo'
+
+  sidebar:
+    import_export: Imports/Exports
+
+  attributes:
+    id: 'ID'
+    created_at: 'Created'
+    updated_at: 'Updated'
+    query: 'Search'
+    daterange_from_to: 'From/to'

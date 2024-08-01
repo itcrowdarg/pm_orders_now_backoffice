@@ -1,0 +1,21 @@
+
+<div class="col-12 col-md-6 col-lg-4">
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-2">
+    <h3><%= t('devise.passwords.edit.change_your_password') %></h3>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), data: { controller: 'form'}, html: { method: :put }) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <%= f.custom_password_field :password, input_options: { autofocus: true, autocomplete: "new-password" } %>
+    <%= f.custom_password_field :password_confirmation, input_options: { autocomplete: "new-password" } %>
+    <%= render "devise/shared/links" %>
+
+    <div class="d-grid">
+      <%= submit_button %>
+    </div>
+  <% end %>
+
+
+</div>

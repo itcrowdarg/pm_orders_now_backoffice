@@ -1,0 +1,15 @@
+<table class="table responsive mb-0">
+  <thead>
+    <tr>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'id', AdminUser.human_attribute_name(:id) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'last_name', AdminUser.human_attribute_name(:last_name) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'first_name', AdminUser.human_attribute_name(:first_name) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'email', AdminUser.human_attribute_name(:email) %></span></th>
+      <th scope="col"><span class="d-flex align-items-center"><%= sortable 'created_at', AdminUser.human_attribute_name(:created_at) %></span></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="list-admin-users">
+    <%= render @presenter.list %>
+  </tbody>
+</table>

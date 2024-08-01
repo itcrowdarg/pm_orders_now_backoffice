@@ -1,0 +1,12 @@
+<script>
+  var myModalEl = document.querySelector('#<%= current_modal_id %>');
+  var myModal = bootstrap.Modal.getOrCreateInstance(myModalEl);
+  myModal.hide();
+  document.querySelector('#<%= turbo_frame_id %>').innerHTML = ''
+
+  <% if previous_modal_id.present? %>
+  var myModalElPrev = document.querySelector('#<%= previous_modal_id %>');
+  var modalPrev = bootstrap.Modal.getOrCreateInstance(myModalElPrev, {backdrop: 'static'});
+  modalPrev.show();
+  <% end %>
+</script>

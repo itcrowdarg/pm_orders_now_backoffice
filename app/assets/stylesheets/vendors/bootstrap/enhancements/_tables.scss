@@ -1,0 +1,61 @@
+.table {
+  thead {
+    tr {
+      th {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        a {
+          color: $primary;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.table.table-hover {
+  td:not(.operations,.no-click-event) {
+    cursor: pointer;
+  }
+}
+
+.table {
+  td.operations {
+    width: 100px;
+
+    .btn-link{
+      color: $primary;
+      font-size: 1.1em;
+    }
+    .btn-link:hover {
+      color: $btn-link-hover-color;
+    }
+    .operations-container{
+      display: flex;
+      justify-content: end;
+      gap: 0.25rem;
+    }
+  }
+}
+
+.table {
+  .check-column {
+    width: 50px;
+    span.form-check {
+      display: flex;
+      justify-content: center;
+      .form-check-input{
+        width: 1.2em;
+        height: 1.2em;
+        cursor: pointer;
+      }
+    }
+  }
+}
+

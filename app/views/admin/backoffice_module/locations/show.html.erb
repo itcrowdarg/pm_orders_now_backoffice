@@ -1,0 +1,47 @@
+<%= turbo_frame_tag turbo_frame_id do %>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="modal-title" class="modal-title"><%= Location.model_name.human %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" data-controller="form">
+        <div class="row">
+          <div class="col-md">
+            <%= custom_text_field(Location.human_attribute_name(:name), @location.name) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <%= custom_text_field(Location.human_attribute_name(:phone_number), @location.phone_number) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <%= custom_text_field(Location.human_attribute_name(:address), @location.address) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= custom_text_field(Location.human_attribute_name(:latitude), @location.latitude) %>
+          </div>
+          <div class="col-md-6">
+            <%= custom_text_field(Location.human_attribute_name(:longitude), @location.longitude) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= custom_text_field(Location.human_attribute_name(:is_active), @location.is_active) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= custom_text_field(Location.human_attribute_name(:is_featured), @location.is_featured) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "script_open_modal_form_entity" %>
+<% end %>
+

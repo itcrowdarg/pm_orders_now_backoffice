@@ -1,0 +1,44 @@
+.uploadOuter {
+  text-align: center;
+  strong {
+    padding: 0 10px
+  }
+  .dragBox {
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    line-height: 95px;
+    color: #999;
+    border: 1px dashed #ffffff20;
+    border-radius: 0.5rem;
+    display: block;
+    transition: transform 0.3s;
+    input[type="file"] {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0 !important;
+      top: 0;
+      left: 0;
+    }
+  }
+  .draging {
+    transform: scale(1.1);
+  }
+
+  .purge-check{
+    display: flex;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .preview {
+    text-align: center;
+    margin-top: 0.5rem;
+    img {
+      max-width: 100%
+    }
+  }
+}
