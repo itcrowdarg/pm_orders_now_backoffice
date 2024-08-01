@@ -39,6 +39,13 @@
             <%= custom_text_field(Location.human_attribute_name(:is_featured), @location.is_featured) %>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= "#{@location.latitude},#{@location.longitude}" %>&zoom=12&size=400x400&key=<%= ENV['GOOGLE_STATIC_MAP_API_KEY']%>">
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
