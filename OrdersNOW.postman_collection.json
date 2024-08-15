@@ -1,0 +1,545 @@
+{
+	"info": {
+		"_postman_id": "c43ae405-8c63-493b-9b21-5943bfd5127f",
+		"name": "OrdersNOW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17927753"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "refresh_token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/refresh_token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password - step 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"tkd.inbox@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/send_reset_password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"send_reset_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password - step 2 (browser)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/reset_password/H6fCYd9UuNB-zaYWz9xC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset_password",
+								"H6fCYd9UuNB-zaYWz9xC"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password - step 3",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"reset_password_token\": \"eZWxw53iqHTaGujMR6ej\",\n  \"password\": \"112358\",\n  \"password_confirmation\": \"112358\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/reset_password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign_in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"fpena@itcrowd.dev\",\n  \"password\": \"112358\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/sign_in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign_up - send_confirmation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"tkd.inbox+loqueyoquiera@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/send_confirmation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"send_confirmation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign_up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Fran\",\n  \"last_name\": \"Peña\",\n  \"email\": \"tkd.inbox+loqueyoquiera01@gmail.com\",\n  \"password\": \"11235813\",\n  \"password_confirmation\": \"11235813\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/sign_up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"sign_up"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "locations",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9pZCI6MSwidXNlcl9pZCI6MiwiZXhwIjoxNzIyMDE0NzM1fQ.6HNaRwLEYv_zEfgsbTLtES_sy1uck3357J2KVAqOZPw",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Mostaza - Shopping Portal Trelew",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Josiah Williams 207, Trelew, Chubut",
+									"type": "default"
+								},
+								{
+									"key": "phone_number",
+									"value": "2215231486",
+									"type": "default"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "images_attributes[1][file]",
+									"value": [
+										"/Users/kaki/Downloads/starbucks logo 1992.jpg"
+									],
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "images_attributes[2][file]",
+									"value": [
+										"/Users/kaki/Downloads/Screenshot 2024-07-05 at 10.17.09 AM.png"
+									],
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9pZCI6MSwidXNlcl9pZCI6MiwiZXhwIjoxNzIzODMwMjAzfQ.rWVkVLCr_mxfWV5VojvmakWhYvZ0GvxhnMwrjJEAXVY",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations?page=1&per_page=20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9pZCI6OSwidXNlcl9pZCI6MTYsImV4cCI6MTcyMDU1MDIyMX0.Y2vrZDjskNq2dzlZHCK-quy66nDwE_r_gt7fCiIGQZE",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9pZCI6MiwidXNlcl9pZCI6MiwiZXhwIjoxNzIwMTk1NDU3fQ.bI1H7LEi-JiVnVJy9D7Km6SF1jMhYxhYjKf8HDaxkeY",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Carlitos Meets",
+									"type": "default"
+								},
+								{
+									"key": "images_attributes[0][id]",
+									"value": "25",
+									"type": "default"
+								},
+								{
+									"key": "images_attributes[0][_destroy]",
+									"value": "true",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations/34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations",
+								"34"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9pZCI6MSwidXNlcl9pZCI6MiwiZXhwIjoxNzIwMzI2MDIwfQ.FFOJ-TLiQnjAMJN54OudfMYM8pt2HfnqRBNT5EViRsQ",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9pZCI6OSwidXNlcl9pZCI6MTYsImV4cCI6MTcyMDU1MDIyMX0.Y2vrZDjskNq2dzlZHCK-quy66nDwE_r_gt7fCiIGQZE",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl9pZCI6OSwidXNlcl9pZCI6MTYsImV4cCI6MTcyMDU1MDIyMX0.Y2vrZDjskNq2dzlZHCK-quy66nDwE_r_gt7fCiIGQZE",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"David\",\n  \"last_name\": \"Lee II\",\n  \"password\": \"11235813\",\n  \"password_confirmation\": \"11235813\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bruno",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}

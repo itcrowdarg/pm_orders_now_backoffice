@@ -58,7 +58,8 @@ The steps to run the local development environment are as follows:
 ```bash
 docker compose build
 docker compose run --rm --no-deps app bundle install
-docker compose run --rm app bundle exec rake db:drop db:create db:migrate db:seed
+docker compose run --rm app bundle exec rake db:drop db:create db:migrate
+docker compose run --rm app bundle exec rake db:seed
 docker compose up
 ```
 
